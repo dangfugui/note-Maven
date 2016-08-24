@@ -1,0 +1,51 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion><!-- 指定了当前pom的版本 -->
+	<groupId>com.dang.note</groupId>	<!-- 反写公司网址+项目名 -->
+	<artifactId>note-maven</artifactId>	<!-- 项目名+模块名 -->
+	<version>0.0.1-SNAPSHOT</version>		<!-- 版本号 大版本号.分支版本号.小版本号 -->
+	<!-- snapshot快照 alpha内侧 beta公测 Release稳定 GA正试发布 -->
+
+	<packaging>jar</packaging>	<!-- 打包方式 默认jar war zip pom -->
+
+
+
+	<name>note_maven</name>		<!-- 项目描述名 -->
+	<url>http://maven.apache.org</url><!-- 项目地址 -->
+	<description></description>		<!-- 项目描述 -->
+	<developers></developers>			<!-- 开放人员列表 -->
+	<licenses></licenses>				<!-- 许可列表 -->
+	<organization></organization>		<!-- 组织列表 -->
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<dependencies>	<!-- 依赖列表 -->
+		<dependency>	<!-- 依赖项 -->
+			<groupId>junit</groupId>	<!-- 坐标 -->
+			<artifactId>junit</artifactId>
+			<version>3.8.1</version>	<!-- 版本 -->
+			<scope>test</scope>	<!-- 依赖范围  --> 
+			<!-- compile:默认 编译，测试， 运行  provided：编译和测试 runtime 测试和运行(jdbc) test:测试  system:与本机系统相关联，可移植性差   import：  -->
+			<optional>false</optional> <!-- //设置依赖是否可选 -->
+			<exclusions></exclusions><!-- 排除依赖列表 -->
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins><!-- 插件 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>3.0.1</version>
+				<executions><!-- 绑定 到生命周期的package 阶段-->
+					<execution>
+						<phase>package</phase>
+						<goals><goal>jar-no-fork</goal></goals><!-- 没表 -->
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>
